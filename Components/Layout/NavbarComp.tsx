@@ -18,6 +18,7 @@ import {
   Divider,
 } from "@nextui-org/react";
 import Link from "next/link";
+import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
 export default function NavbarComp() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -45,7 +46,17 @@ export default function NavbarComp() {
 
         <NavbarItem>
           <Dropdown>
-            <DropdownTrigger>Gallery</DropdownTrigger>
+            <DropdownTrigger>
+              <Button
+                disableRipple
+                className="p-0 text-base bg-transparent data-[hover=true]:bg-transparent"
+                endContent={<ChevronDownIcon className="h-3 w-3" />}
+                radius="sm"
+                variant="light"
+              >
+                Features
+              </Button>
+            </DropdownTrigger>
 
             <DropdownMenu>
               <DropdownItem>
