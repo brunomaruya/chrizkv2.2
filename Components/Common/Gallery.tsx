@@ -5,6 +5,7 @@ import Image from "next/image";
 import Masonry from "react-masonry-css";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import ScrollReveal from "./ScrollReveal";
 
 interface IFiles {
   $id: string;
@@ -49,7 +50,7 @@ export default function Gallery({ bucket_id }: { bucket_id: string }) {
   }, [files]);
 
   return (
-    <>
+    <div>
       <Lightbox
         index={index}
         slides={urls}
@@ -63,23 +64,25 @@ export default function Gallery({ bucket_id }: { bucket_id: string }) {
       >
         {urls.length > 1
           ? urls.map((url, index) => (
-              <Image
-                className="mb-3"
-                // loading="lazy"
-                onClick={() => {
-                  setIndex(index);
-                  console.log(url);
-                }}
-                // priority={true}
-                key={index}
-                width={500}
-                height={500}
-                alt="image"
-                src={url.src}
-              />
+              <ScrollReveal key={index}>
+                <Image
+                  className="mb-3"
+                  loading="lazy"
+                  onClick={() => {
+                    setIndex(index);
+                    console.log(url);
+                  }}
+                  // priority={true}
+
+                  width={500}
+                  height={500}
+                  alt="image"
+                  src={url.src}
+                />
+              </ScrollReveal>
             ))
           : "Loading"}
       </Masonry>
-    </>
+    </div>
   );
 }

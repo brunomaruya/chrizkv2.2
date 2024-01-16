@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.container {
+  min-height: 0.5px;
+}
+
 :root {
 }
 
