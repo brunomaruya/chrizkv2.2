@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function TravelComp() {
   return (
-    <div className="mt-32 margin-default">
+    <div className="mt-32">
       <h1 className="text-4xl mb-6">Travels</h1>
       <div className="grid grid-rows-2 grid-cols-4 gap-4 h-[20rem] md:h-[40rem]">
         <Image

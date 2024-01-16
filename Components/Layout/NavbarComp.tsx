@@ -60,7 +60,7 @@ export default function NavbarComp() {
 
             <DropdownMenu>
               <DropdownItem>
-                <Link href="/">Portraits</Link>
+                <Link href="/portraits">Portraits</Link>
               </DropdownItem>
               <DropdownItem>
                 <Link href="/">Places</Link>
