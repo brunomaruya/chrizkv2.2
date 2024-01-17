@@ -6,6 +6,7 @@ import Masonry from "react-masonry-css";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import ScrollReveal from "./ScrollReveal";
+import { CircularProgress } from "@nextui-org/react";
 
 interface IFiles {
   $id: string;
@@ -57,32 +58,36 @@ export default function Gallery({ bucket_id }: { bucket_id: string }) {
         open={index >= 0}
         close={() => setIndex(-1)}
       />
-      <Masonry
-        breakpointCols={breakpointColumnsObj}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {urls.length > 1
-          ? urls.map((url, index) => (
-              <ScrollReveal key={index}>
-                <Image
-                  className="mb-3"
-                  loading="lazy"
-                  onClick={() => {
-                    setIndex(index);
-                    console.log(url);
-                  }}
-                  // priority={true}
+      {urls.length > 0 ? (
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {urls.map((url, index) => (
+            <ScrollReveal key={index}>
+              <Image
+                className="mb-3"
+                loading="lazy"
+                onClick={() => {
+                  setIndex(index);
+                  console.log(url);
+                }}
+                // priority={true}
 
-                  width={500}
-                  height={500}
-                  alt="image"
-                  src={url.src}
-                />
-              </ScrollReveal>
-            ))
-          : "Loading"}
-      </Masonry>
+                width={500}
+                height={500}
+                alt="image"
+                src={url.src}
+              />
+            </ScrollReveal>
+          ))}
+        </Masonry>
+      ) : (
+        <div className="w-full flex justify-center mt-80">
+          <CircularProgress />
+        </div>
+      )}
     </div>
   );
 }
