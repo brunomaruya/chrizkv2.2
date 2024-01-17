@@ -15,7 +15,13 @@ interface IUrls {
   src: string;
 }
 
-export default function Gallery({ bucket_id }: { bucket_id: string }) {
+export default function Gallery({
+  bucket_id,
+  title,
+}: {
+  bucket_id: string;
+  title: string;
+}) {
   const [index, setIndex] = useState(-1);
   const [urls, setUrls] = useState<IUrls[]>([]);
   const [files, setFiles] = useState<IFiles[]>([]);
@@ -57,34 +63,37 @@ export default function Gallery({ bucket_id }: { bucket_id: string }) {
         slides={urls}
         open={index >= 0}
         close={() => setIndex(-1)}
-      />
+      />{" "}
       {urls.length > 0 ? (
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-        >
-          {urls.map((url, index) => (
-            <ScrollReveal key={index}>
-              <Image
-                className="mb-3"
-                loading="lazy"
-                onClick={() => {
-                  setIndex(index);
-                  console.log(url);
-                }}
-                // priority={true}
+        <div>
+          <h1 className="my-5 text-3xl">{title} </h1>
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+          >
+            {urls.map((url, index) => (
+              <ScrollReveal key={index}>
+                <Image
+                  className="mb-3"
+                  loading="lazy"
+                  onClick={() => {
+                    setIndex(index);
+                    console.log(url);
+                  }}
+                  // priority={true}
 
-                width={500}
-                height={500}
-                alt="image"
-                src={url.src}
-              />
-            </ScrollReveal>
-          ))}
-        </Masonry>
+                  width={500}
+                  height={500}
+                  alt="image"
+                  src={url.src}
+                />
+              </ScrollReveal>
+            ))}
+          </Masonry>
+        </div>
       ) : (
-        <div className="w-full flex justify-center mt-80">
+        <div className="w-full flex justify-center ">
           <CircularProgress />
         </div>
       )}

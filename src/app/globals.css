@@ -3,20 +3,27 @@
 @tailwind utilities;
 
 .container {
-  min-height: 0.5px;
+  min-height: 400px;
 }
 
 :root {
 }
 
 body {
+  overflow-x: hidden;
 }
 
 .bg-hero {
-  @apply h-[calc(100vh-65px)] bg-[url('../../public/images/home-image-bg.jpg')] bg-no-repeat bg-center bg-cover  w-screen relative;
+  @apply h-[calc(100vh-65px)] bg-[url('../../public/images/home-image-bg.jpg')] bg-no-repeat bg-center bg-cover;
 }
-.hero-left {
-  left: calc(-50vw + 50%);
+
+.child-div {
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .margin-default {

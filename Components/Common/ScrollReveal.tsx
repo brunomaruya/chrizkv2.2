@@ -17,7 +17,7 @@ const ScrollReveal = ({
     if (sectionRef.current)
       scrollReveal().reveal(sectionRef.current, {
         reset: true,
-        delay: 100,
+        delay: 300,
       });
   }, []);
 

@@ -10,6 +10,7 @@ export default function Portraits() {
             ? process.env.NEXT_PUBLIC_PORTRAITS_BUCKET_KEY
             : ""
         }
+        title="Portraits"
       />
     </div>
   );
