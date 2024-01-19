@@ -41,7 +41,7 @@ export default function NavbarComp() {
           <Link href="/">Home</Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/">About me</Link>
+          <Link href="/about-me">About me</Link>
         </NavbarItem>
 
         <NavbarItem>

@@ -63,7 +63,7 @@ export default function Gallery({
         slides={urls}
         open={index >= 0}
         close={() => setIndex(-1)}
-      />{" "}
+      />
       {urls.length > 0 ? (
         <div>
           <h1 className="my-5 text-3xl">{title} </h1>
