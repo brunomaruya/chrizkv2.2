@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .container {
-  min-height: 400px;
+  min-height: fit-content;
 }
 
 :root {
