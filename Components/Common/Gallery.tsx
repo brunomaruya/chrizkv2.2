@@ -73,22 +73,23 @@ export default function Gallery({
             columnClassName="my-masonry-grid_column"
           >
             {urls.map((url, index) => (
-              <ScrollReveal key={index}>
-                <Image
-                  className="mb-3"
-                  loading="lazy"
-                  onClick={() => {
-                    setIndex(index);
-                    console.log(url);
-                  }}
-                  // priority={true}
+              // <ScrollReveal key={index}>
+              <Image
+                key={index}
+                className="mb-3"
+                loading="lazy"
+                onClick={() => {
+                  setIndex(index);
+                  console.log(url);
+                }}
+                // priority={true}
 
-                  width={500}
-                  height={500}
-                  alt="image"
-                  src={url.src}
-                />
-              </ScrollReveal>
+                width={500}
+                height={500}
+                alt="image"
+                src={url.src}
+              />
+              // </ScrollReveal>
             ))}
           </Masonry>
         </div>
