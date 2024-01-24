@@ -19,8 +19,11 @@ import {
 } from "@nextui-org/react";
 import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { usePathname } from "next/navigation";
+import { Spinner } from "@nextui-org/react";
 
 export default function NavbarComp() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const itemClasses = {
     base: "py-0",
@@ -28,6 +31,19 @@ export default function NavbarComp() {
     trigger: "py-0",
     content: "pb-2",
   };
+  const links = [
+    { title: "Home", href: "/" },
+    { title: "About me", href: "/about-me" },
+    {
+      title: "Gallery",
+      subLinks: [
+        { title: "Portraits", href: "/portraits" },
+        { title: "Travel", href: "/travel" },
+      ],
+    },
+    { title: "Contact", href: "/contact" },
+  ];
+  console.log(links[1].hasOwnProperty("href"));
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} isBordered>
@@ -35,40 +51,43 @@ export default function NavbarComp() {
         <NavbarBrand>ChriZtianK</NavbarBrand>
         <NavbarMenuToggle className="sm:hidden" />
       </NavbarContent>
-
       <NavbarContent justify="end" className="hidden sm:flex">
-        <NavbarItem>
-          <Link href="/">Home</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="/about-me">About me</Link>
-        </NavbarItem>
+        {links.map((link, index) => (
+          <NavbarItem key={link.title}>
+            {link.hasOwnProperty("href") ? (
+              <Link href={link.href ? link.href : "#"}>{link.title}</Link>
+            ) : (
+              <Dropdown>
+                <DropdownTrigger>
+                  <Button
+                    disableRipple
+                    className="p-0 text-base bg-transparent data-[hover=true]:bg-transparent"
+                    endContent={<ChevronDownIcon className="h-3 w-3" />}
+                    radius="sm"
+                    variant="light"
+                  >
+                    {link.title}
+                  </Button>
+                </DropdownTrigger>
 
-        <NavbarItem>
-          <Dropdown>
-            <DropdownTrigger>
-              <Button
-                disableRipple
-                className="p-0 text-base bg-transparent data-[hover=true]:bg-transparent"
-                endContent={<ChevronDownIcon className="h-3 w-3" />}
-                radius="sm"
-                variant="light"
-              >
-                Gallery
-              </Button>
-            </DropdownTrigger>
-
-            <DropdownMenu>
-              <DropdownItem>
-                <Link href="/portraits">Portraits</Link>
-              </DropdownItem>
-              <DropdownItem>
-                <Link href="/">Places</Link>
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </NavbarItem>
-
+                <DropdownMenu>
+                  {link.subLinks ? (
+                    link.subLinks.map((subLink, index) => (
+                      <DropdownItem key={subLink.title}>
+                        <Link href={subLink.href}>{subLink.title}</Link>
+                      </DropdownItem>
+                    ))
+                  ) : (
+                    <DropdownItem>
+                      <Spinner />
+                    </DropdownItem>
+                  )}
+                </DropdownMenu>
+              </Dropdown>
+            )}
+          </NavbarItem>
+        ))}
+        <NavbarItem></NavbarItem>
         <NavbarItem>
           <Link href="/">Contact</Link>
         </NavbarItem>
