@@ -51,11 +51,19 @@ export default function NavbarComp() {
         <NavbarBrand>ChriZtianK</NavbarBrand>
         <NavbarMenuToggle className="sm:hidden" />
       </NavbarContent>
+
       <NavbarContent justify="end" className="hidden sm:flex">
         {links.map((link, index) => (
-          <NavbarItem key={link.title}>
+          <NavbarItem key={index}>
             {link.hasOwnProperty("href") ? (
-              <Link href={link.href ? link.href : "#"}>{link.title}</Link>
+              <Link
+                href={link.href ? link.href : "#"}
+                className={` ${
+                  pathname == link.href ? "text-primary" : "text-text"
+                }`}
+              >
+                {link.title}
+              </Link>
             ) : (
               <Dropdown>
                 <DropdownTrigger>
@@ -74,23 +82,26 @@ export default function NavbarComp() {
                   {link.subLinks ? (
                     link.subLinks.map((subLink, index) => (
                       <DropdownItem key={subLink.title}>
-                        <Link href={subLink.href}>{subLink.title}</Link>
+                        <Link
+                          className={` ${
+                            pathname == subLink.href
+                              ? "text-primary"
+                              : "text-text"
+                          }`}
+                          href={subLink.href}
+                        >
+                          {subLink.title}
+                        </Link>
                       </DropdownItem>
                     ))
                   ) : (
-                    <DropdownItem>
-                      <Spinner />
-                    </DropdownItem>
+                    <Spinner />
                   )}
                 </DropdownMenu>
               </Dropdown>
             )}
           </NavbarItem>
         ))}
-        <NavbarItem></NavbarItem>
-        <NavbarItem>
-          <Link href="/">Contact</Link>
-        </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu>
