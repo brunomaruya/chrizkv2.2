@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import image from "../../../public/images/Christian.jpg";
 import { texts } from "./text";
+import Texts from "./Texts";
 
 export default function AboutMe() {
   return (
@@ -22,11 +23,7 @@ export default function AboutMe() {
           <h6 className="text-md mb-5 font-semibold">
             Capturing Japan's Essence Through the Lens: A Photographer's Journey
           </h6>
-          {texts.map((text, index) => (
-            <p className="mb-3 text-sm lg:text-lg" key={index}>
-              {text}
-            </p>
-          ))}
+          <Texts />
         </div>
       </div>
     </div>
