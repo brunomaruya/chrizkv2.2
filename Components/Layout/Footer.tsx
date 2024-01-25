@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="mt-10 ">
+    <footer className="mt-10 h-[72px] ">
       <Divider />
       <div className="margin-default  py-5 flex items-center justify-between">
         <div>ChriZtianK</div>

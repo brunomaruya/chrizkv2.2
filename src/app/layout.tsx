@@ -21,10 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <MainProvider>
-          <div className="flex flex-col justify-between min-h-screen">
+          <div className="">
             <NavbarComp />
-            <main className="margin-default">{children}</main>
-            <Footer />
+            <div className="flex flex-col justify-between h-[calc(100vh-72px)]">
+              <main className="margin-default ">{children}</main>
+              <Footer />
+            </div>
           </div>
         </MainProvider>
       </body>

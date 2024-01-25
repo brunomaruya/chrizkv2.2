@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import image from "../../../public/images/travel photos/DSC00007 1.png";
+import image from "../../../public/images/Christian.jpg";
 
 export default function AboutMe() {
   return (
@@ -8,7 +8,7 @@ export default function AboutMe() {
       {/* <h1 className="my-5 text-3xl">About me</h1> */}
       <div className="flex justify-between gap-5">
         <Image
-          className="flex-1"
+          className="flex-1 w-72"
           width={500}
           height={500}
           alt="image"
