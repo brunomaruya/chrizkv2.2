@@ -21,7 +21,8 @@ export default function AboutMe() {
             Chriztian Kenji
           </h1>
           <h6 className="text-md mb-5 font-semibold">
-            Capturing Japan's Essence Through the Lens: A Photographer's Journey
+            Capturing Japan&apos;s Essence Through the Lens: A
+            Photographer&apos;s Journey
           </h6>
           <Texts />
         </div>
