@@ -21,6 +21,7 @@ import Link from "next/link";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { usePathname } from "next/navigation";
 import { Spinner } from "@nextui-org/react";
+import { Key } from "@phosphor-icons/react";
 
 export default function NavbarComp() {
   const pathname = usePathname();
@@ -51,14 +52,13 @@ export default function NavbarComp() {
         <NavbarBrand>ChriZtianK</NavbarBrand>
         <NavbarMenuToggle className="sm:hidden" />
       </NavbarContent>
-
       <NavbarContent justify="end" className="hidden sm:flex">
         {links.map((link, index) => (
           <NavbarItem key={index}>
             {link.hasOwnProperty("href") ? (
               <Link
                 href={link.href ? link.href : "#"}
-                className={` ${
+                className={` hover:opacity-75 ${
                   pathname == link.href ? "text-primary" : "text-text"
                 }`}
               >
@@ -83,7 +83,7 @@ export default function NavbarComp() {
                     link.subLinks.map((subLink, index) => (
                       <DropdownItem key={subLink.title}>
                         <Link
-                          className={` ${
+                          className={` hover:opacity-75 ${
                             pathname == subLink.href
                               ? "text-primary"
                               : "text-text"
@@ -104,37 +104,55 @@ export default function NavbarComp() {
         ))}
       </NavbarContent>
 
+      {/* //--------------------------------------------------------------------------------------//
+      // MOBILE VERSION //
+      //--------------------------------------------------------------------------------------/ */}
+
       <NavbarMenu>
-        <NavbarMenuItem>
-          <Link href="/">Home</Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link href="/">About me</Link>
-        </NavbarMenuItem>
-        <Divider />
-        <Accordion
-          variant="light"
-          isCompact
-          className="m-0 p-0 text-lg "
-          itemClasses={itemClasses}
-        >
-          <AccordionItem className="" title="Gallery">
-            <NavbarMenuItem className=" py-2">
-              <Link className="" href="/">
-                Portraits
-              </Link>
-            </NavbarMenuItem>
-            <NavbarMenuItem>
-              <Link className="" href="/">
-                Places
-              </Link>
-            </NavbarMenuItem>
-          </AccordionItem>
-        </Accordion>
-        <Divider />
-        <NavbarMenuItem>
-          <Link href="/">Contact</Link>
-        </NavbarMenuItem>
+        {links.map((link, index) => (
+          <div key={index}>
+            {link.hasOwnProperty("href") ? (
+              <NavbarMenuItem key={index}>
+                <Link
+                  className={` hover:opacity-75 ${
+                    pathname == link.href ? "text-primary" : "text-text"
+                  }`}
+                  href={link.href ? link.href : "#"}
+                >
+                  {link.title}
+                </Link>
+              </NavbarMenuItem>
+            ) : (
+              <>
+                <Divider />
+                <Accordion
+                  variant="light"
+                  isCompact
+                  className="m-0 p-0 text-lg "
+                  itemClasses={itemClasses}
+                >
+                  <AccordionItem title={link.title}>
+                    {link.subLinks?.map((subLink, index) => (
+                      <NavbarMenuItem key={index} className=" py-2">
+                        <Link
+                          className={` hover:opacity-75 ${
+                            pathname == subLink.href
+                              ? "text-primary"
+                              : "text-text"
+                          }`}
+                          href={subLink.href}
+                        >
+                          {subLink.title}
+                        </Link>
+                      </NavbarMenuItem>
+                    ))}
+                  </AccordionItem>
+                </Accordion>
+                <Divider />
+              </>
+            )}
+          </div>
+        ))}
       </NavbarMenu>
     </Navbar>
   );
