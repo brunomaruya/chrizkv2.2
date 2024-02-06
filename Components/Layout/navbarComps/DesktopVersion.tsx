@@ -5,7 +5,8 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  Link,
+  Link as LinkUI,
+  Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
@@ -15,6 +16,7 @@ import {
 import React from "react";
 import { links } from "./links";
 import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function DesktopVersion() {
   const router = useRouter();
@@ -25,21 +27,23 @@ export default function DesktopVersion() {
   return (
     <>
       <NavbarContent>
-        <NavbarBrand>ChriZtianK</NavbarBrand>
+        <NavbarBrand>
+          <Link href="/">ChriZtianK</Link>
+        </NavbarBrand>
         <NavbarMenuToggle className="sm:hidden" />
       </NavbarContent>
       <NavbarContent justify="end" className="hidden sm:flex">
         {links.map((link, index) => (
           <NavbarItem key={index}>
             {link.hasOwnProperty("href") ? (
-              <Link
+              <LinkUI
                 href={link.href ? link.href : "#"}
                 className={` hover:opacity-75 ${
                   pathname == link.href ? "text-primary" : "text-text"
                 }`}
               >
                 {link.title}
-              </Link>
+              </LinkUI>
             ) : (
               <Dropdown>
                 <DropdownTrigger>

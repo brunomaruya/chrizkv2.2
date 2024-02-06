@@ -9,7 +9,11 @@ export default function NavbarComp() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered>
+    <Navbar
+      onMenuOpenChange={setIsMenuOpen}
+      isBordered
+      className="fixed top-0 "
+    >
       <DesktopVersion />
       <MobileVersion />
     </Navbar>
