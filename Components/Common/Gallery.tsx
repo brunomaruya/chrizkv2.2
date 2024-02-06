@@ -76,7 +76,7 @@ export default function Gallery({
               // <ScrollReveal key={index}>
               <Image
                 key={index}
-                className="mb-3"
+                className="mb-3 hover:cursor-pointer"
                 loading="lazy"
                 onClick={() => {
                   setIndex(index);

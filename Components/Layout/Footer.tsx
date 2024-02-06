@@ -10,7 +10,7 @@ export default function Footer() {
       <Divider />
       <div className="margin-default  py-5 flex items-center justify-between">
         <div>ChriZtianK</div>
-        <div>
+        <div className="flex flex-col items-end">
           <ul>
             <li>
               <Link
@@ -21,6 +21,7 @@ export default function Footer() {
               </Link>
             </li>
           </ul>
+          <div>christiankenji2003394@gmail.com</div>
         </div>
       </div>
     </footer>

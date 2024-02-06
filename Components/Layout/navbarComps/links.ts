@@ -8,5 +8,5 @@ export const links = [
       { title: "Travel", href: "/travel" },
     ],
   },
-  { title: "Contact", href: "/contact" },
+  // { title: "Contact", href: "/contact" },
 ];
