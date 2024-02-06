@@ -9,7 +9,9 @@ export default function Footer() {
     <footer className="mt-10 h-[72px] ">
       <Divider />
       <div className="margin-default  py-5 flex items-center justify-between">
-        <div>ChriZtianK</div>
+        <div>
+          <Link href="/">ChriZtianK</Link>
+        </div>
         <div className="flex flex-col items-end">
           <ul>
             <li>
