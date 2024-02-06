@@ -94,7 +94,7 @@ export default function Gallery({
           </Masonry>
         </div>
       ) : (
-        <div className="w-full flex justify-center ">
+        <div className="w-full mt-72 flex justify-center items-center">
           <CircularProgress />
         </div>
       )}
