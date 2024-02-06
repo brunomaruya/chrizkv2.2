@@ -10,7 +10,7 @@ export default function AboutMe() {
       <h1 className="my-5 text-3xl">About me</h1>
       <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-5 lg:gap-20">
         <Image
-          className="w-full lg:w-96"
+          className="w-full md:w-64 xl:w-96"
           width={500}
           height={500}
           alt="image"
@@ -18,7 +18,7 @@ export default function AboutMe() {
         />
         <div className="flex-1 ">
           <h1 className="text-2xl font-bold lg:text-4xl mb-1 text-primary-500">
-            Chriztian Kenji
+            Christian Kenji
           </h1>
           <h6 className="text-md mb-5 font-semibold">
             Capturing Japan&apos;s Essence Through the Lens: A

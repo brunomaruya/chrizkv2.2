@@ -14,10 +14,14 @@ import {
 } from "@nextui-org/react";
 import React from "react";
 import { links } from "./links";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function DesktopVersion() {
+  const router = useRouter();
   const pathname = usePathname();
+  const handleOnClick = (link: string) => {
+    router.push(link);
+  };
   return (
     <>
       <NavbarContent>
@@ -53,17 +57,19 @@ export default function DesktopVersion() {
                 <DropdownMenu>
                   {link.subLinks ? (
                     link.subLinks.map((subLink, index) => (
-                      <DropdownItem key={subLink.title}>
-                        <Link
+                      <DropdownItem
+                        key={subLink.title}
+                        onClick={() => handleOnClick(subLink.href)}
+                      >
+                        <div
                           className={` hover:opacity-75 ${
                             pathname == subLink.href
                               ? "text-primary"
                               : "text-text"
                           }`}
-                          href={subLink.href}
                         >
                           {subLink.title}
-                        </Link>
+                        </div>
                       </DropdownItem>
                     ))
                   ) : (
