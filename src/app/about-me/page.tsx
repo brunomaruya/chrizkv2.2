@@ -6,11 +6,11 @@ import Texts from "./Texts";
 
 export default function AboutMe() {
   return (
-    <div className="mt-5   lg:mx-52">
+    <div className="mt-5   ">
       <h1 className="my-5 text-3xl">About me</h1>
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-5 lg:gap-20">
+      <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-5 lg:gap-20">
         <Image
-          className="w-full md:w-64 xl:w-96"
+          className="w-full sm:w-60 md:w-96"
           width={500}
           height={500}
           alt="image"
