@@ -23,7 +23,14 @@ export default function Footer() {
               </Link>
             </li>
           </ul>
-          <div>christiankenji2003394@gmail.com</div>
+          <div
+            className="hover:cursor-pointer"
+            onClick={() =>
+              (window.location.href = "mailto:christiankenji2003394@gmail.com")
+            }
+          >
+            christiankenji2003394@gmail.com
+          </div>
         </div>
       </div>
     </footer>
