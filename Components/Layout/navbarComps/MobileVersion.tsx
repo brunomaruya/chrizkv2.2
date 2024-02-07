@@ -6,18 +6,22 @@ import {
   AccordionItem,
 } from "@nextui-org/react";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { links } from "./links";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { NavbarContext } from "./NavbarProvider";
 
 export default function MobileVersion() {
+  const { isMenuOpen, setIsMenuOpen } = useContext(NavbarContext);
   const pathname = usePathname();
+  const router = useRouter();
   const itemClasses = {
     base: "py-0",
     title: "py-0 text-lg",
     trigger: "py-0",
     content: "pb-2",
   };
+
   return (
     <>
       <NavbarMenu>
@@ -26,6 +30,7 @@ export default function MobileVersion() {
             {link.hasOwnProperty("href") ? (
               <NavbarMenuItem key={index}>
                 <Link
+                  onClick={() => setIsMenuOpen(false)}
                   className={` hover:opacity-75 ${
                     pathname == link.href ? "text-primary" : "text-text"
                   }`}
@@ -47,6 +52,7 @@ export default function MobileVersion() {
                     {link.subLinks?.map((subLink, index) => (
                       <NavbarMenuItem key={index} className=" py-2">
                         <Link
+                          onClick={() => setIsMenuOpen(false)}
                           className={` hover:opacity-75 ${
                             pathname == subLink.href
                               ? "text-primary"

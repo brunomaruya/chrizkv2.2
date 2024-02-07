@@ -1,11 +1,16 @@
 "use client";
 import { NextUIProvider } from "@nextui-org/react";
 import React from "react";
+import NavbarProvider from "../Components/Layout/navbarComps/NavbarProvider";
 
 export default function MainProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <NextUIProvider>{children}</NextUIProvider>;
+  return (
+    <NextUIProvider>
+      <NavbarProvider>{children}</NavbarProvider>
+    </NextUIProvider>
+  );
 }
