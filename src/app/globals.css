@@ -11,10 +11,11 @@
 
 body {
   overflow-x: hidden;
+  height: 100vh;
 }
 
 .bg-hero {
-  @apply h-[calc(100vh-65px)] bg-[url('../../public/images/home-image-bg.jpg')] bg-no-repeat bg-center bg-cover;
+  @apply mt-[64px] h-[calc(100vh-65px)] bg-[url('../../public/images/home-image-bg.jpg')] bg-no-repeat bg-center bg-cover;
 }
 
 .child-div {
