@@ -15,7 +15,7 @@
 
 ## Introduction
 
-SketchShare is a vibrant online community where users can share images, add descriptions, and interact with other users' posts. The platform allows users to create accounts and log in to personalize their experience.
+Welcome to the online portfolio of Chistian Kenji, a passionate photographer capturing the essence of Japan through his lens. Immerse yourself in the beauty of Japanese landscapes, culture, and moments frozen in time.
 <!--
 <p align="center">
   <img src = "http://i.imgur.com/HowF6aM.png" width=350>
@@ -24,11 +24,10 @@ SketchShare is a vibrant online community where users can share images, add desc
 ## Features
 
 
-* User Registration and Login
-* Image Upload
-* Explore and Discover
-* Dark Mode
-* Web responsive
+* Web Responsive
+* Mansory Gallery
+* Lightbox
+* Appwrite Backend
 
  <!--<p align="center">
   <img src = "http://i.imgur.com/IkSnFRL.png" width=700>
