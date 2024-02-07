@@ -11,7 +11,7 @@ export default function NavbarProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(true);
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const values = { isMenuOpen, setIsMenuOpen };
   return (
     <NavbarContext.Provider value={values}>{children}</NavbarContext.Provider>
