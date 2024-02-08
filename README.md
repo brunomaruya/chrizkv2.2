@@ -44,6 +44,8 @@ Welcome to the online portfolio of Chistian Kenji, a passionate photographer cap
 First, run the development server:
 
 ```bash
+git clone https://github.com/brunomaruya/chriztianzk-portfolio-v2.git
+
 npm run dev
 # or
 yarn dev
