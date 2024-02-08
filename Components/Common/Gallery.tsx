@@ -51,7 +51,7 @@ export default function Gallery({
         const id = file.$id;
         const result = storage.getFileView(bucket_id, id);
 
-        setUrls((prev) => [...prev, { src: result.href }]);
+        setUrls((prev) => [...prev, { src: result.href, width: 720 }]);
       });
     }
   }, [files]);

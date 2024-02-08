@@ -10,18 +10,15 @@ import "yet-another-react-lightbox/styles.css";
 
 export default function Travel() {
   const [index, setIndex] = useState(-1);
-  const [urls, setUrls] = useState<any[]>([]);
 
-  useEffect(() => {
-    setUrls([
-      { src: "/images/travel photos/DSC00007 1.png" },
-      { src: "/images/travel photos/DSC00455 1.png" },
-      { src: "/images/travel photos/DSC00485 1.png" },
-      { src: "/images/travel photos/DSC00121 1.png" },
-      { src: "/images/travel photos/DSC04557 1.png" },
-      { src: "/images/travel photos/DSC05340 1.png" },
-    ]);
-  }, []);
+  const urls = [
+    { src: "/images/travel photos/DSC00007 1.png" },
+    { src: "/images/travel photos/DSC00455 1.png" },
+    { src: "/images/travel photos/DSC00485 1.png" },
+    { src: "/images/travel photos/DSC00121 1.png" },
+    { src: "/images/travel photos/DSC04557 1.png" },
+    { src: "/images/travel photos/DSC05340 1.png" },
+  ];
 
   const breakpointColumnsObj = {
     default: 4,
