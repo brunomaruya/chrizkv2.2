@@ -74,21 +74,23 @@ export default function Gallery({
           >
             {urls.map((url, index) => (
               // <ScrollReveal key={index}>
-              <Image
-                key={index}
-                className="mb-3 hover:cursor-pointer"
-                loading="lazy"
-                onClick={() => {
-                  setIndex(index);
-                  console.log(url);
-                }}
-                // priority={true}
+              <>
+                <Image
+                  key={index}
+                  className="mb-3 hover:cursor-pointer"
+                  loading="lazy"
+                  onClick={() => {
+                    setIndex(index);
+                    console.log(url);
+                  }}
+                  // priority={true}
 
-                width={500}
-                height={500}
-                alt="image"
-                src={url.src}
-              />
+                  width={500}
+                  height={500}
+                  alt="image"
+                  src={url.src}
+                />
+              </>
               // </ScrollReveal>
             ))}
           </Masonry>
