@@ -75,8 +75,6 @@ export default function Gallery({
             {urls.map((url, index) => (
               // <ScrollReveal key={index}>
               <>
-                {index}
-                {url.toString()}
                 <Image
                   key={index}
                   className="mb-3 hover:cursor-pointer"
