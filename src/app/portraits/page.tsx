@@ -7,7 +7,7 @@ export default function Portraits() {
       <Gallery
         bucket_id={
           process.env.NEXT_PUBLIC_PORTRAITS_BUCKET_KEY
-            ? process.env.NEXT_PUBLIC_PORTRAITS_BUCKET_KEY
+            ? process.env.NEXT_PUBLIC_PORTRAITS_BUCKET_KEY.toString()
             : ""
         }
         title="Portraits"
