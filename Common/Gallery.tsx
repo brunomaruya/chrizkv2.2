@@ -51,10 +51,9 @@ export default function Gallery({
   };
 
   return (
-    <div>
+    <div className="mt-[80px]">
       {urls ? (
         <div>
-          {console.log(urls)}
           <Lightbox
             index={index}
             slides={urls}
