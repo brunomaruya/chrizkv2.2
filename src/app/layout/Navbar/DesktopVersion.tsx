@@ -14,7 +14,7 @@ import {
   Spinner,
 } from "@nextui-org/react";
 import React from "react";
-import { links } from "./links";
+import { links } from "../../../../constants/links";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 

@@ -2,12 +2,12 @@
 import React, { useContext } from "react";
 import { Navbar } from "@nextui-org/react";
 
-import DesktopVersion from "./navbarComps/DesktopVersion";
-import MobileVersion from "./navbarComps/MobileVersion";
+import DesktopVersion from "./Navbar/DesktopVersion";
+import MobileVersion from "./Navbar/MobileVersion";
 import NavbarProvider, {
   NavbarContext,
   userNavbarContext,
-} from "./navbarComps/NavbarProvider";
+} from "../../../Providers/NavbarProvider";
 
 export default function NavbarComp() {
   // const [isMenuOpen, setIsMenuOpen] = React.useState(true);

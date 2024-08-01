@@ -7,9 +7,9 @@ import {
 } from "@nextui-org/react";
 import Link from "next/link";
 import React, { useContext } from "react";
-import { links } from "./links";
+import { links } from "../../../../constants/links";
 import { usePathname, useRouter } from "next/navigation";
-import { NavbarContext } from "./NavbarProvider";
+import { NavbarContext } from "../../../../Providers/NavbarProvider";
 
 export default function MobileVersion() {
   const { isMenuOpen, setIsMenuOpen } = useContext(NavbarContext);

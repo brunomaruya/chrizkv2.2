@@ -1,5 +1,5 @@
 import React from "react";
-import Gallery from "../../../Components/Common/Gallery";
+import Gallery from "../../../Common/Gallery";
 
 export default function Portraits() {
   return (

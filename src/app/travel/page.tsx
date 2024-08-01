@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Gallery from "../../../Components/Common/Gallery";
+import Gallery from "../../../Common/Gallery";
 import { CircularProgress } from "@nextui-org/react";
 import { title } from "process";
 import Masonry from "react-masonry-css";

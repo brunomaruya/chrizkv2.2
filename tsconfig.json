@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "Components/Common/ScrollReveal.jsx"
+    "Common/ScrollReveal.jsx"
   ],
   "exclude": ["node_modules"]
 }
