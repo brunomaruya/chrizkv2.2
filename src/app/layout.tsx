@@ -23,7 +23,7 @@ export default function RootLayout({
         <MainProvider>
           <div className="">
             <NavbarComp />
-            <div className=" flex flex-col justify-between h-[calc(100vh-30px)]">
+            <div className=" flex flex-col justify-between h-[calc(100vh-30px)] mt-[80px]">
               <main className="margin-default ">{children}</main>
               <Footer />
             </div>

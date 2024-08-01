@@ -51,7 +51,7 @@ export default function Gallery({
   };
 
   return (
-    <div className="mt-[80px]">
+    <div>
       {urls ? (
         <div>
           <Lightbox
