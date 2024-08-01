@@ -28,58 +28,7 @@ export default function Travel() {
   };
   return (
     <div>
-      {/* <Gallery
-        bucket_id={
-          process.env.NEXT_PUBLIC_PORTRAITS_BUCKET_KEY
-            ? process.env.NEXT_PUBLIC_PORTRAITS_BUCKET_KEY
-            : ""
-        }
-        title="Travel"
-      /> */}
-      {urls && (
-        <div>
-          <Lightbox
-            index={index}
-            slides={urls}
-            open={index >= 0}
-            close={() => setIndex(-1)}
-          />
-          {urls.length > 0 ? (
-            <div>
-              <h1 className="my-5 text-3xl">{title} </h1>
-              <Masonry
-                breakpointCols={breakpointColumnsObj}
-                className="my-masonry-grid"
-                columnClassName="my-masonry-grid_column"
-              >
-                {urls.map((url, index) => (
-                  // <ScrollReveal key={index}>
-                  <Image
-                    key={index}
-                    className="mb-3 hover:cursor-pointer"
-                    loading="lazy"
-                    onClick={() => {
-                      setIndex(index);
-                      console.log(url);
-                    }}
-                    // priority={true}
-
-                    width={500}
-                    height={500}
-                    alt="image"
-                    src={url.src}
-                  />
-                  // </ScrollReveal>
-                ))}
-              </Masonry>
-            </div>
-          ) : (
-            <div className="w-full mt-72 flex justify-center items-center">
-              <CircularProgress />
-            </div>
-          )}
-        </div>
-      )}
+      <Gallery folder="travel/" title="Travel" />
     </div>
   );
 }

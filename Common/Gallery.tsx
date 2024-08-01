@@ -5,7 +5,7 @@ import Image from "next/image";
 import Masonry from "react-masonry-css";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import ScrollReveal from "./ScrollReveal";
+
 import { CircularProgress } from "@nextui-org/react";
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "@/app/firebase";
@@ -18,10 +18,10 @@ interface IUrls {
 }
 
 export default function Gallery({
-  bucket_id,
+  folder,
   title,
 }: {
-  bucket_id: string;
+  folder: string;
   title: string;
 }) {
   const [index, setIndex] = useState(-1);
@@ -29,13 +29,14 @@ export default function Gallery({
   const [files, setFiles] = useState<IFiles[]>([]);
   const [imageList, setImageList] = useState<any[]>([]);
 
-  const listRef = ref(storage, "images/");
+  const listRef = ref(storage, folder);
+
   useEffect(() => {
     listAll(listRef).then((response) => {
       response.items.forEach((item) => {
         getDownloadURL(item).then((url) => {
-          setImageList((prev: any) => [...prev, url]);
           setUrls((prev) => [...prev, { src: url }]);
+          console.log(url);
         });
       });
     });
@@ -49,33 +50,11 @@ export default function Gallery({
     500: 1,
   };
 
-  // useEffect(() => {
-  //   promise.then(
-  //     function (response) {
-  //       setFiles(response.files);
-  //       // Success
-  //     },
-  //     function (error) {
-  //       console.log(error); // Failure
-  //     }
-  //   );
-  // }, []);
-
-  // useEffect(() => {
-  //   if (files.length > 1) {
-  //     files.map((file: IFiles) => {
-  //       const id = file.$id;
-  //       const result = storage.getFileView(bucket_id, id);
-  //       console.log(result.href);
-  //       setUrls((prev) => [...prev, { src: result.href }]); //720
-  //     });
-  //   }
-  // }, [files]);
-
   return (
     <div>
       {urls ? (
         <div>
+          {console.log(urls)}
           <Lightbox
             index={index}
             slides={urls}
